@@ -1,0 +1,23 @@
+{
+    "name": "versatilecms/posts",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fábio Assunção",
+            "email": "fabio23gt@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [],
+        "psr-4": {
+            "Versatile\\Posts\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Versatile\\Posts\\Providers\\PostsServiceProvider"
+            ]
+        }
+    }
+}
