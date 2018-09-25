@@ -19,5 +19,7 @@
                 "Versatile\\Posts\\Providers\\PostsServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
