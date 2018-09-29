@@ -3,7 +3,12 @@
 namespace Versatile\Posts\Providers;
 
 use Versatile\Posts\Commands;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+use Versatile\Core\Policies\BasePolicy;
+use Versatile\Posts\Policies\PostPolicy;
+use Versatile\Posts\Post;
+use Versatile\Posts\Category;
 
 class PostsServiceProvider extends ServiceProvider
 {
@@ -11,6 +16,16 @@ class PostsServiceProvider extends ServiceProvider
      * Our root directory for this package to make traversal easier
      */
     protected $packagePath = __DIR__ . '/../../';
+
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+        Post::class  => PostPolicy::class,
+        Category::class => BasePolicy::class,
+    ];
 
     /**
      * Bootstrap the application services
@@ -23,6 +38,8 @@ class PostsServiceProvider extends ServiceProvider
         $this->strapViews();
         $this->strapMigrations();
         $this->strapCommands();
+
+        $this->registerPolicies();
     }
 
     /**

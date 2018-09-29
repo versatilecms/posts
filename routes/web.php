@@ -11,3 +11,13 @@ Route::group([
     Route::get('/', ['uses' => 'FrontPostsController@getPosts', 'as' => 'list']);
     Route::get('{slug}', ['uses' => 'FrontPostsController@getPost', 'as' => 'post']);
 });
+
+Route::group([
+    'prefix' => 'admin/posts/',
+    'middleware' => ['web', 'admin.user'],
+    'namespace' => $namespace,
+    'as' => 'versatile.'
+], function () {
+    Versatile::resource('categories', 'CategoriesController');
+    Versatile::resource('posts', 'PostsController');
+});

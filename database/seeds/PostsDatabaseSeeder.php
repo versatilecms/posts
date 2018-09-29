@@ -16,7 +16,7 @@ class PostsDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->seed('PostsBread');
-        $this->seed('CategoriesBread');
+        $this->seed('Posts');
+        $this->seed('Categories');
     }
 }

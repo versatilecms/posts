@@ -174,6 +174,16 @@
             */
             $('.toggleswitch').bootstrapToggle();
 
+            // Init datepicker for date fields if data-datetimepicker attribute defined
+            // or if browser does not handle date inputs
+            $('.form-group input[type=date]').each(function (idx, elt) {
+                if (elt.hasAttribute('data-datetimepicker')) {
+                    elt.type = 'text';
+                    var options = $(elt).data('datetimepicker');
+                    $(elt).datetimepicker(options);
+               }
+            });
+
             /**
             * Slugify
             */
