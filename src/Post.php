@@ -48,7 +48,7 @@ class Post extends BaseModel
 
     public function authorId()
     {
-        return $this->belongsTo(Versatile::modelClass('User'), 'author_id', 'id');
+        return $this->belongsTo(User::class, 'author_id', 'id');
     }
 
     /**
